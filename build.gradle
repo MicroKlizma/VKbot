@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+test {
+    systemProperty "file.encoding", "utf-8"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+
+
+mainClassName = 'vkbot.Bot'
+
+dependencies {
+    implementation 'com.vk.api:sdk:1.0.14'
+}
+
+test {
+    useJUnitPlatform()
+}
